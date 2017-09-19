@@ -29,7 +29,7 @@ if (adminUser == null || adminUser == "") {
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
         <a href="javascript:;">
-           <%= session.getAttribute("adminUser") %>
+           <%= session.getAttribute("adminUserName") %>
         </a>
         <dl class="layui-nav-child">
           <dd><a href="">修改密码</a></dd>

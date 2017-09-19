@@ -52,8 +52,24 @@ if (type.equals("addadmin")) {
 		msg = "非法操作";
 	}
 }
+//删除管理员
+if (type.equals("delete")) {
+	String adminUser = (String)session.getAttribute("adminUser");
+	if (adminUser != null && adminUser != "") {
+		String id = request.getParameter("id");
+		AdminAction admin = new AdminAction(mysqlUser, mysqlPass);
+		if (admin.delete(Integer.parseInt(id))) {
+			msg = "success";
+		} else {
+			msg = "fail";
+		}
+	} else {
+		msg = "非法操作";
+	}
+}
 if (type.equals("exit")) {
 	session.setAttribute("adminUser", "");
+	session.setAttribute("adminUserName", "");
 	response.sendRedirect("../admin/login.html");
 	msg = "success";
 }

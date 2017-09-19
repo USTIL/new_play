@@ -22,19 +22,7 @@ List<Map<String, String>> rows = play.getAll();
     <div class="layui-logo">获奖展示系统</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="javascript:plays()">主页</a></li>
-      <li class="layui-nav-item"><a href="javascript:users()">添加此比赛获奖</a></li>
-    </ul>
-    <ul class="layui-nav layui-layout-right">
-      <li class="layui-nav-item">
-        <a href="javascript:;">
-               	用户姓名
-        </a>
-        <dl class="layui-nav-child">
-          <dd><a href="">修改密码</a></dd>
-          <dd><a href="../api/user.jsp?type=exit">退出</a></dd>
-        </dl>
-      </li>
+      <li class="layui-nav-item"><a href="javascript:home()">主页</a></li>
     </ul>
   </div>
   

@@ -25,8 +25,25 @@ if (type.equals("getAlladmin")) {
 				data += "},";
 			}
 		}
-		data = data.substring(0, data.length()-1);
+		if (i > 0) {
+			data = data.substring(0, data.length()-1);
+		}
 		msg = "{\"code\":0,\"msg\":\"\",\"count\":"+count+",\"data\":["+data+"]}";
+	} else {
+		msg = "非法操作";
+	}
+}
+//删除比赛
+if (type.equals("delete")) {
+	String adminUser = (String)session.getAttribute("adminUser");
+	if (adminUser != null && adminUser != "") {
+		String id = request.getParameter("id");
+		PlayAction play = new PlayAction(mysqlUser, mysqlPass);
+		if (play.delete(Integer.parseInt(id))) {
+			msg = "success";
+		} else {
+			msg = "fail";
+		}
 	} else {
 		msg = "非法操作";
 	}
@@ -51,6 +68,13 @@ if (type.equals("addplay")) {
 	} else {
 		msg = "非法操作";
 	}
+}
+//根据比赛id获取比赛标题
+if (type.equals("getTitleById")) {
+	String id = request.getParameter("id");
+	PlayAction play = new PlayAction(mysqlUser, mysqlPass);
+	Map<String, String> row = play.getInfoById(Integer.parseInt(id));
+	msg = row.get("title");
 }
 response.getWriter().println(msg);
 %>

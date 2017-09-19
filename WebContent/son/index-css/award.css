@@ -1,2 +1,14 @@
 /* CSS Document */
+#leg {
+	text-align: center;
+}
 
+#btn {
+	width: 100%;
+}
+
+#add {
+	width: 90%;
+	margin: 10px auto 0;
+	display: none;
+}

@@ -14,6 +14,7 @@ if (type.equals("admin")) {
 		AdminAction admin = new AdminAction(mysqlUser, mysqlPass);
 		if (admin.verify(username, password)) {
 			session.setAttribute("adminUser", username);
+			session.setAttribute("adminUserName", username);
 			msg = "success";
 		} else {
 			msg = "fail";
